@@ -1,3 +1,7 @@
+you will need to install python which should include pip before you can start
+
+Directions might be different on a windows computer. You van visit the Django site for more information.
+
 How to install Django
 
 pip install django

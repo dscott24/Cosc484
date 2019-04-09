@@ -28,7 +28,7 @@ How to Start app
 
 cd MessageApp
 python3 manage.py migrate (for Windows: python manage.py migrate)
-python3 manage.py runserver (for Windows: python manage.py migrate)
+python3 manage.py runserver (for Windows: python manage.py runserver)
 
 If you get no errors then go to your browser and type in 127.0.0.1:8000
 

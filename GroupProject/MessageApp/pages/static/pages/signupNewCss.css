@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0px;
     padding: 0px;
 }
@@ -31,18 +31,33 @@ text-align:left;
 }
 
 .left {
-    width: 700px;
+    width: 15%;
     float: left;
     background-color:#55cf45;
     text-align: left;
     padding: 80px;
     color: #1b00b1;
 }
-.right {
-    margin-left: 1000px;
+.middle{
+
+    margin-left:500px;
     background-color:#55cf45;
+    text-align: center;
+    padding: 80px;
+    color: #1b00b1;
+    width: 50%;
+    
+  	border: 3px solid green;
+
+}
+.right {
+	float: right;
+    margin-left: 500px;
+    background-color:#55cf45;
+    text-align: left;
     color: #530b61;
     padding: 10px;
+    width: 10%;
 
 }
 button {

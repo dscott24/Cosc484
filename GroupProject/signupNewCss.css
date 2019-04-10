@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+
+    background-color:#55cf45;
+    text-align: left;
+
+}
+
+#topelement{
+
+    background-color:#202833;
+    text-align: center;  
+}
+#topelement h1{
+    color:#f32a2a; 
+    font-family: "Lucida Calligraphy";
+
+}
+
+label
+{
+display:inline-block;
+width:80px;
+white-space: nowrap;
+margin-right:30px;
+text-align:left;
+}
+
+.left {
+    width: 700px;
+    float: left;
+    background-color:#55cf45;
+    text-align: left;
+    padding: 80px;
+    color: #1b00b1;
+}
+.right {
+    margin-left: 1000px;
+    background-color:#55cf45;
+    color: #530b61;
+    padding: 10px;
+
+}
+button {
+    background-color:#fffc3e; 
+    border: none;
+    color:#2600ff;
+    padding: 7px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 12px;
+  }

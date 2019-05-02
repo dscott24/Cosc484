@@ -60,7 +60,7 @@ ROOT_URLCONF = 'MessageApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +75,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'MessageApp.wsgi.application'
 
+
+
+LOGIN_URL = '/users/login'
+
+LOGIN_EXEMPT_URLS = (
+    '/logout',
+    r'^$',
+)
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -118,6 +126,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

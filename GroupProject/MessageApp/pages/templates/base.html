@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Maintenance Portal</title>
+    <link rel="shortbut icon" href="{% static 'ticket/img/fav-icon.png' %}" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="{% static 'bootstrap3/dist/css/bootstrap.min.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="{% static 'ionicons/dist/css/ionicons.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'admin-lte/dist/css/AdminLTE.min.css' %}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{% static 'icheck/skins/square/blue.css' %}">
+    <link rel="stylesheet" href="{% static 'jquery-ui-dist/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ticket/css/base.css' %}">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    {% block style %}{% endblock %}
+
+    {% block css %}
+        <style>
+            /* Tooltip container */
+            .disabled-link {
+                position: relative;
+                color: lightgrey;
+                opacity: 0.3;
+                cursor: not-allowed;
+            }
+
+            /* Tooltip text */
+            .disabled-link .tooltiptext {
+                visibility: hidden;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                padding: 5px 0;
+                border-radius: 6px;
+
+                position: absolute;
+                top:-5px;
+                left: -10%;
+            }
+
+            .disabled-link:hover .tooltiptext {
+                visibility: visible;
+            }
+        </style>
+    {% endblock css %}
+
+
+</head>
+
+<body class="hold-transition skin-black fixed sidebar-mini">
+
+
+        <!-- Main content -->
+        <section class="content container-fluid">
+            {% block content %}
+            <!--------------------------
+              | Your Page Content Here |
+              -------------------------->
+            {% endblock %}
+        
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+<!-- jQuery UI 1.12.1 -->
+<script src="{%  static 'jquery-ui-dist/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{% static 'bootstrap3/dist/js/bootstrap.min.js' %}"></script>
+<!-- Countdown JS -->
+<script src="{% static 'ticket/js/jquery.downCount.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'admin-lte/dist/js/adminlte.min.js' %}"></script>
+{% block javascript %}
+{% endblock %}
+
+</body>
+</html>

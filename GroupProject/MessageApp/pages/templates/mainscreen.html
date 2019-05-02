@@ -4,10 +4,42 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="elipsicom.ico" type="image/x-icon">
-    <title> Elipsicom - Login</title>
+    <title> Elipsicom</title>
     <link rel="stylesheet" href="signupNewCss.css">
+
+       <!-- Bootstrap core CSS -->
+       <link href="{% static 'bootstrap3/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+       <!-- Custom styles for this template -->
+       <link href="{% static 'ticket/css/business-frontpage.css' %}" rel="stylesheet">
+   
+       <!-- Favorite Icon -->
+       <link rel="shortbut icon" href="{% static 'ticket/img/fav-icon.png' %}" />
+   
+       <!-- Temporary navbar container fix -->
+       
 </head>
 <body>
+
+
+  <!-- Navigation -->
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="container">
+        <div style="font-size: 30px; position: absolute; color: red;">Elipsicom</div>
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
     <div class="form">
       <div id='topelement'>
         <br>

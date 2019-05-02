@@ -5,19 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="elipsicom.ico" type="image/x-icon">
     <title> Elipsicom - Login</title>
+
+    {% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap3/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'ticket/css/business-frontpage.css' %}" rel="stylesheet">
+
+    <!-- Favorite Icon -->
+    <link rel="shortbut icon" href="{% static 'ticket/img/fav-icon.png' %}" />
     
     {% load static %}
     <link rel="stylesheet" href="{% static 'pages/signupNewCss.css' %}">
+
+
+    
+       <!-- Bootstrap core CSS -->
+       <link href="{% static 'bootstrap3/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+       <!-- Custom styles for this template -->
+       <link href="{% static 'ticket/css/business-frontpage.css' %}" rel="stylesheet">
+   
+       <!-- Favorite Icon -->
+       <link rel="shortbut icon" href="{% static 'ticket/img/fav-icon.png' %}" />
+
+          <!-- Temporary navbar container fix -->
+    <style>
+        .navbar {
+            border: 3px solid transparent;
+            border-radius: 0;
+        }
+
+        @media (max-width: 576px) {
+            nav > .container {
+                width: 100%;
+            }
+        }
+
+        .fixed-top {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+        }
+
+    </style>
+   
 </head>
 <body>
-    <div class="form">
-      <div id='topelement'>
-        <br>
-          <h1>Elipsicom </h1>
-        <img src='elipsicom.ico' alt ='logo'> 
-        <br><br>
 
-      </div>
+
+  
+  <!-- Navigation -->
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="container">
+        
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 
       <div class="left"> <br><br>
           <h1>Easy interactions between students and teachers.</h1> <br><br>
@@ -99,6 +157,19 @@
       </div>
         
   </div> <!-- /form -->
+
+<!-- Footer -->
+<footer class="py-5 bg-inverse">
+    <div class="container">
+        <p class="m-0 text-center text-white">© 2018 East Maryland University. All Rights Reserved</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'tether/dist/js/tether.min.js' %}"></script>
+<script src="{% static 'bootstrap3/dist/js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>

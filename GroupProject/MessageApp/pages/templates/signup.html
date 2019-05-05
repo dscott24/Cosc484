@@ -16,7 +16,9 @@
  <div class="conatiner">
      <form method="post">
          {%csrf_token %}
+         <div class="container col-lg-4 col-lg-offset-4 panel panel-default ">
          {{form.as_p}}
+         </div>
 
          <div class="col-xs-12">
                 <button type="submit" >Submit</button>

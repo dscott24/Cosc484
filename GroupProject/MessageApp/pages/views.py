@@ -2,7 +2,7 @@ from  django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from MessageApp.models import User
-from django.contrib.auth.forms import UserCreationForm
+from MessageApp.forms import RegistrationForm
 
 
 # Create your views here.
@@ -14,16 +14,15 @@ def home_view(request, *args, **kwargs):
 def login_view(request, *args, **kwargs):
     return render(request,"login.html", {})
 
-def signup_view(request):
+def signup_view(request, *args, **kwargs):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/account')
+            return redirect('/login')
 
     else:
-        form = UserCreationForm()
-
+        form = RegistrationForm()
 
         args = {'form': form}
         return render(request, 'signup.html', args)

@@ -23,9 +23,9 @@ urlpatterns = [
     path('', views.home_view, name='home'),
     url(r'^$', views.HomePageView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-    path('accounts/profile/',views.profile_view, name='profile'),
+    
     url(r'^login/$', LoginView.as_view(template_name='login.html'), name="login"),
     url(r'^logout/$', LogoutView.as_view(template_name='pages/login.html'), name='logout'),
-   # url(r'^accounts/profile/(?P<pk>\d+)/$', views.ProfileView.as_view(), name='profile'),
+    url(r'^accounts/profile/', views.profile_view, name='profile'),
 
 ]

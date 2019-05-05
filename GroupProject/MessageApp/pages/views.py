@@ -6,7 +6,7 @@ from MessageApp.models import User
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    return render(request,"signupNew.html", {})
+    return render(request,"homepage.html", {})
 
 
 # Create your views here.

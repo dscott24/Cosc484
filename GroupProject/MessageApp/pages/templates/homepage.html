@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="elipsicom.ico" type="image/x-icon">
+    <title> Elipsicom - Login</title>
+
+    {% load staticfiles %}
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/signupNewCss.css' %}">
+
+
+    
+       <!-- Bootstrap core CSS -->
+       <link href="{% static 'bootstrap3/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+       <!-- Custom styles for this template -->
+       <link href="{% static 'ticket/css/business-frontpage.css' %}" rel="stylesheet">
+   
+       <!-- Favorite Icon -->
+       <link rel="shortbut icon" href="{% static 'ticket/img/fav-icon.png' %}" />
+
+          <!-- Temporary navbar container fix -->
+    <style>
+        .navbar {
+            border: 3px solid transparent;
+            border-radius: 0;
+        }
+
+        @media (max-width: 576px) {
+            nav > .container {
+                width: 100%;
+            }
+        }
+
+        .fixed-top {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1030;
+        }
+
+    </style>
+   
+</head>
+<body>
+
+
+  
+  <!-- Navigation -->
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="container">
+        
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+  <div class="jumbotron col-lg-8 col-lg-offset-2">
+      <h1 class="display-4">  Welcome to Elipsicom </h1>
+      <p class="lead">  Easy interactions between students and teachers. Ask questions outside class.</p>
+      <hr class="my-4">
+      <p>  Interact with teachers and other students. Communicate in real time.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Log in</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a>
+      </p>
+    </div>
+
+  <!-- Bootstrap core JavaScript -->
+<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'tether/dist/js/tether.min.js' %}"></script>
+<script src="{% static 'bootstrap3/dist/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

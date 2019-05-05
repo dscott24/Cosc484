@@ -12,17 +12,34 @@
   
 </head>
 <body>
-        
+        <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+                <div class="container">
+                    
+                    <div class="collapse navbar-collapse" id="navbarExample">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
  <div class="conatiner">
      <form method="post">
          {%csrf_token %}
+         <h3>Register</h3>
          <div class="container col-lg-4 col-lg-offset-4 panel panel-default ">
          {{form.as_p}}
-         </div>
 
          <div class="col-xs-12">
-                <button type="submit" >Submit</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
             </div>
+         </div>
+
+         
      </form>
  </div>
 

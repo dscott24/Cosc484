@@ -14,7 +14,7 @@ def home_view(request, *args, **kwargs):
 def login_view(request, *args, **kwargs):
     return render(request,"login.html", {})
 
-def signup_view(request, *args, **kwargs):
+def signup_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():

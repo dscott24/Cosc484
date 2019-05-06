@@ -54,33 +54,7 @@
                           <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
                           <a href="#" class="list-group-item list-group-item-action">Threads 4</a>
                          
-                          <form method="POST" action="/create_thread/">
-                                {%csrf_token %}
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLongTitle">Create a new Thread</h5>
-                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <input class="form-control" name="threads_name"type="text" placeholder="Thread name"><br>
-                                                <input class="form-control" name="member_number"type="number" placeholder="Number of members in thread"><br>
-                                                <input class="form-control" name="member_username"type="text" placeholder="Member usernames"><br>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                              <button type="submit" class="btn btn-primary">Create Thread</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                </div>
-
-                          </form>
+                          
                          
                </div>
                 <div  style="display: inline;">
@@ -187,14 +161,14 @@
                                           </li>
                                       </ul>
                                   </div>
-                                  <form method="POST">
+                                  <form method="POST" action="/create_message/">
                                         {%csrf_token %}
                                 
                                   <div class="panel-footer">
                                       <div class="input-group">
-                                                <input id="text_message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                                <input name="text_message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                                                 <span class="input-group-btn">
-                                                      <button class="btn btn-secondary btn-sm" id="btn-chat"><input type="file" class="form-control-file"  id="message_image"></button>
+                                                      <button class="btn btn-secondary btn-sm" name="message__image"id="btn-chat"><input type="file" class="form-control-file"  id="message_image"></button>
                                                     <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
                                                 </span>
 
@@ -205,6 +179,33 @@
                               </div>
                           </div>
                           <!--pop up that allows user to create a new thread-->
+                          <form method="POST" action="/create_thread/">
+                            {%csrf_token %}
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLongTitle">Create a new Thread</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input class="form-control" name="threads_name"type="text" placeholder="Thread name"><br>
+                                            <input class="form-control" name="member_number"type="number" placeholder="Number of members in thread"><br>
+                                            <input class="form-control" name="member_username"type="text" placeholder="Member usernames"><br>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-primary">Create Thread</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+
+                      </form>
                           
                       </div>
                   

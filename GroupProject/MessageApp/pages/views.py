@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from MessageApp.models import User
 from MessageApp.forms import RegistrationForm
-from MessageApp.models import Thread
+from MessageApp.models import Thread, Message, Member
 
 
 # Create your views here.
@@ -38,7 +38,21 @@ def create_thread(request):
     newThread = Thread(name=name_of_thread)
     newThread.save()
     return render(request,'profile.html')
-    
+
+
+def create_message(request):
+
+    message_text=request.POST.get('text_message')
+    current_user= request.user
+    message_image= request.POST.get('message__image')
+    message_thread=Thread(name="testingThread")
+    message_thread.save()
+
+
+    newMessage = Message(text=message_text, user_ID=current_user, image=message_image, thread_ID= message_thread)
+    newMessage.save()
+    return render(request,'profile.html')
+
 
 def profile_view(request, *args, **kwargs):
     return render(request,'profile.html', {})

@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(template_name='pages/login.html'), name='logout'),
     url(r'^accounts/profile/', views.profile_view, name='profile'),
     url(r'^create_thread/$', views.create_thread, name='create_thread'),
+    url(r'^create_message/$', views.create_message, name='create_message'),
 
 ]

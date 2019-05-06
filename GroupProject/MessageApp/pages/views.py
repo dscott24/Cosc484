@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from MessageApp.models import User
 from MessageApp.forms import RegistrationForm
+from MessageApp.models import Thread
 
 
 # Create your views here.
@@ -29,8 +30,14 @@ def signup_view(request):
 
 def create_thread(request):
     print("thread created")
-    name = request.POST["thread_name"]
-    members = request.POST["member_names"]
+    name_of_thread = request.POST.get('threads_name')
+    print(name_of_thread)
+    number_of_Members = request.POST.get('member_number')
+    members = request.POST.get('member_username')
+
+    newThread = Thread(name=name_of_thread)
+    newThread.save()
+    return render(request,'profile.html')
     
 
 def profile_view(request, *args, **kwargs):

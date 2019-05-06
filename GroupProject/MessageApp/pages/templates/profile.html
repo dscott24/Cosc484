@@ -5,13 +5,14 @@
     <link rel="stylesheet" href="{% static 'pages/chatroomCss.css' %}">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
     <!-- Navigation -->
-<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
         <div class="container">
             
             <div class="collapse navbar-collapse" id="navbarExample">
@@ -26,35 +27,61 @@
             </div>
         </div>
     </nav>
-
-    <div class="row">
-        <div class="col-lg-8 col-md-6 ">
-            <div class="box box-primary">
-                <div class="box-body box-profile">
-                 <h3 class="profile-username ">Welcome {{ user.first_name }} {{ user.last_name }}</h3>
-                    
-                </div>
-            </div>
+    <br><br>
+    <div class="container">
+        <h3 class="profile-username ">Welcome {{ user.first_name }} {{ user.last_name }}</h3>
+    </div>
             
-            </div>
-        </div>
+            
+            
+        
         <br><br>
        <div >
-            <div class="col-lg-2"style="display: inline">
+            <div class="h-100 col-lg-2 pre-scrollable"style="display: inline;">
                     <a href="#" class="list-group-item list-group-item-action active">
                             Threads
                           </a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 1</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 2</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 4</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 1</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 2</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 4</a>
-                          <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
+                          <a data-toggle="modal" data-target="#exampleModalCenter" href="#exampleModalCenter"class="list-group-item list-group-item-action list-group-item-info">Create Thread</a>
                          
-                        </div>
+                         <!--form to submit a new message. the end of the form is down by the send button. need to get thread name so message goes to correct user-->
+                          
+                          <a href="#" class="list-group-item list-group-item-action">Threads 1</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 2</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 4</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 1</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 2</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 3</a>
+                          <a href="#" class="list-group-item list-group-item-action">Threads 4</a>
+                         
+                          <form method="POST" action="/create_thread/">
+                                {%csrf_token %}
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLongTitle">Create a new Thread</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input class="form-control" name="threads_name"type="text" placeholder="Thread name"><br>
+                                                <input class="form-control" name="member_number"type="number" placeholder="Number of members in thread"><br>
+                                                <input class="form-control" name="member_username"type="text" placeholder="Member usernames"><br>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-primary">Create Thread</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+
+                          </form>
+                         
                </div>
                 <div  style="display: inline;">
                             <div class=" col-lg-9">
@@ -63,7 +90,7 @@
                               <div class="panel panel-primary">
                                   
                                   <div class="panel-heading">
-                                      <span class="glyphicon glyphicon-comment"></span> Messages
+                                      <span class="glyphicon glyphicon-comment"></span> Members: {{user.username}}
                                       <div class="btn-group pull-right">
         
                               </button>
@@ -77,7 +104,7 @@
                                           </ul>
                                       </div>
                                   </div>
-                                  <div class="panel-body">
+                                  <div class="panel-body pre-scrollable">
                                       <ul class="chat">
                                           <li class="left clearfix">
                                               <span class="chat-img pull-left">
@@ -101,11 +128,37 @@
                                                       <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
                                                       <strong class="pull-right primary-font">{{user.first_name}}{{user.last_name}}</strong>
                                                   </div>
-                                                  <p>
+                                                  <p class="pull-right">
                                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
                                                   </p>
                                               </div>
                                           </li>
+                                          <li class="right clearfix"><span class="chat-img pull-right">
+                                                <img src="http://placehold.it/50/FA6F57/fff&text=BP" alt="User Avatar" class="img-circle" />
+                                            </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                        <strong class="pull-right primary-font">{{user.first_name}}{{user.last_name}}</strong>
+                                                    </div>
+                                                    <p class="pull-right">
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix"><span class="chat-img pull-right">
+                                                    <img src="http://placehold.it/50/FA6F57/fff&text=BP" alt="User Avatar" class="img-circle" />
+                                                </span>
+                                                    <div class="chat-body clearfix">
+                                                        <div class="header">
+                                                            <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                            <strong class="pull-right primary-font">{{user.first_name}}{{user.last_name}}</strong>
+                                                        </div>
+                                                        <p class="pull-right">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                                        </p>
+                                                    </div>
+                                                </li>
                                           <li class="left clearfix"><span class="chat-img pull-left">
                                               <img src="http://placehold.it/50/55C1E7/fff&text=JS" alt="User Avatar" class="img-circle" />
                                           </span>
@@ -114,7 +167,7 @@
                                                       <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
                                                           <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
                                                   </div>
-                                                  <p>
+                                                  <p >
                                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
                                                   </p>
                                               </div>
@@ -127,31 +180,48 @@
                                                       <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
                                                       <strong class="pull-right primary-font">Bhaumik Patel</strong>
                                                   </div>
-                                                  <p>
+                                                  <p class= "pull-right">
                                                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
                                                   </p>
                                               </div>
                                           </li>
                                       </ul>
                                   </div>
+                                  <form method="POST">
+                                        {%csrf_token %}
+                                
                                   <div class="panel-footer">
                                       <div class="input-group">
-                                          <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
-                                          <span class="input-group-btn">
-                                                <button class="btn btn-secondary btn-sm" id="btn-chat">
-                                                        Image</button>
-                                              <button class="btn btn-warning btn-sm" id="btn-chat">
-                                                  Send</button>
-                                          </span>
+                                                <input id="text_message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                                <span class="input-group-btn">
+                                                      <button class="btn btn-secondary btn-sm" id="btn-chat"><input type="file" class="form-control-file"  id="message_image"></button>
+                                                    <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+                                                </span>
+
+                                          </form>
+                                          
                                       </div>
                                   </div>
                               </div>
                           </div>
+                          <!--pop up that allows user to create a new thread-->
+                          
                       </div>
                   
        </div>
 
-        
+       <footer class="navbar-default navbar-fixed-bottom navbar-toggleable-md navbar-inverse bg-inverse">
+            <div class="container-fluid">
+                    <ul class="nav navbar-nav navbar-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Elipsicom Messaging System</a>
+                        </li>    
+                    </ul>
+                                
+            </div>
+                        
+            </div>
+          </footer>
    
     </body>
 </html>

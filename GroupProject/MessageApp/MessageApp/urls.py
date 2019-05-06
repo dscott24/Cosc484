@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^login/$', LoginView.as_view(template_name='login.html'), name="login"),
     url(r'^logout/$', LogoutView.as_view(template_name='pages/login.html'), name='logout'),
     url(r'^accounts/profile/', views.profile_view, name='profile'),
+    url(r'^create_thread/$', views.create_thread, name='create_thread'),
 
 ]

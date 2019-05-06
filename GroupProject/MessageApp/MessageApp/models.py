@@ -33,6 +33,9 @@ class Thread(models.Model):
     name =  models.CharField(max_length=40)
     thread_ID = models.UUIDField(primary_key=True,editable=False, default=uuid.uuid4)
 
+    def __str__(self):
+        return self.name
+
 class Message(models.Model):
     text = models.TextField()
     message_ID = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
@@ -42,9 +45,15 @@ class Message(models.Model):
     thread_ID= models.ForeignKey(Thread, on_delete=models.PROTECT)
     date_time = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.text
+
 class Member(models.Model):
     user_ID = models.ForeignKey(User,on_delete=models.CASCADE)
     thread_ID = models.ForeignKey(Thread, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.thread_ID.name
 
 
 

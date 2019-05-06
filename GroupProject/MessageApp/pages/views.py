@@ -27,6 +27,12 @@ def signup_view(request):
         args = {'form': form}
         return render(request, 'signup.html', args)
 
+def create_thread(request):
+    print("thread created")
+    name = request.POST["thread_name"]
+    members = request.POST["member_names"]
+    
+
 def profile_view(request, *args, **kwargs):
     return render(request,'profile.html', {})
 

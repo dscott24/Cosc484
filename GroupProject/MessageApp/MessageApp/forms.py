@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from MessageApp.models import Thread, Member, Message
 
 
 
@@ -28,3 +29,4 @@ class RegistrationForm(UserCreationForm):
             user.save()
 
         return user
+

@@ -41,7 +41,7 @@ class Message(models.Model):
     message_ID = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
     user_ID = models.ForeignKey(User, on_delete=models.CASCADE)
     
-    image = models.ImageField(upload_to='message_pictures', default='message_pictures/None/default.png', null=True, blank=True)
+    image = models.ImageField(upload_to='message_pictures/', default='message_pictures/None/default.png', null=True, blank=True)
     thread_ID= models.ForeignKey(Thread, on_delete=models.PROTECT)
     date_time = models.DateTimeField(auto_now_add=True)
 

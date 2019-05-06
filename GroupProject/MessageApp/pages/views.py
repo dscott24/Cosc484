@@ -37,7 +37,9 @@ def create_thread(request):
 
     newThread = Thread(name=name_of_thread)
     newThread.save()
-    return render(request,'profile.html')
+    threads = Thread.objects.all()
+    messages=Message.objects.all()
+    return render(request,'profile.html',{'threads': threads, 'messages' : messages})
 
 
 def create_message(request):
@@ -48,18 +50,22 @@ def create_message(request):
     message_thread=Thread(name="testingThread")
     message_thread.save()
 
-
+   
     newMessage = Message(text=message_text, user_ID=current_user, image=message_image, thread_ID= message_thread)
     newMessage.save()
-    return render(request,'profile.html')
+    threads = Thread.objects.all()
+    messages=Message.objects.all()
+    return render(request,'profile.html',{'threads': threads, 'messages' : messages})
+
+
+
 
 
 def profile_view(request, *args, **kwargs):
-    return render(request,'profile.html', {})
+    threads = Thread.objects.all()
+    messages=Message.objects.all()
+    return render(request,'profile.html', {'threads': threads, 'messages' : messages})
 
- #   def get_context_data(self, **kwargs):
-  #      user = User.objects.get(pk=self.kwargs['pk'])
-   #     return {'user': user}
 
 class HomePageView(TemplateView):
     template_name = 'pages/home.html'

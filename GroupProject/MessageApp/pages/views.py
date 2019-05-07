@@ -73,8 +73,8 @@ class Views():
     def profile_view(request, *args, **kwargs):
         current_user=request.user
         threads = Thread.objects.filter()
-        messages=Message.objects.all()
-        return render(request,'profile.html', {'threads': threads, 'messages' : messages})
+       
+        return render(request,'profile.html', {'threads': threads})
 
 
 

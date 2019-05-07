@@ -58,7 +58,7 @@ class Views():
         newMessage.save()
         threads = Thread.objects.all()
         messages=Message.objects.all()
-        return render(request,'profile.html',{'threads': threads, 'messages' : messages})
+        return render(request,'profile.html',{'threads': threads, 'messages' : messages, 'current_thread': message_thread_ID})
 
     def get_messages(request):
         current_thread_ID = request.POST.get('current_thread')

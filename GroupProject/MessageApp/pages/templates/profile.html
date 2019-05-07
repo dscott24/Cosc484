@@ -37,7 +37,7 @@
         
         <br><br>
        <div >
-            <div class="h-100 col-lg-2 pre-scrollable"style="display: inline;">
+            <div class="container col-lg-2 pre-scrollable panel panel-primary"style="display: inline;">
                     <a href="#" class="list-group-item list-group-item-action active">
                             Threads
                           </a>
@@ -46,8 +46,10 @@
                          <!--form to submit a new message. the end of the form is down by the send button. need to get thread name so message goes to correct user-->
                           
                          {% for threads in threads %}
-                         
-                            <a href="#" class="list-group-item list-group-item-action">{{threads.name}}</a>
+                            <form method="POST" action="/get_messages/">
+                                {%csrf_token %}
+                                <button name="current_thread" class="list-group-item list-group-item-action" value ="{{threads.thread_ID}}" type="submit">{{threads.name}}</button>
+                            </form>
 
                          {% endfor %}
                        
@@ -77,10 +79,10 @@
                                       </div>
                                   </div>
                                   <div class="panel-body pre-scrollable">
-                                      <ul class="chat">
+                                      <ul class="chat list-group">
 
                                         {% for messages in messages %}
-                                          <li class="left clearfix">
+                                          <li class="list-group-item left clearfix">
                                               <span class="chat-img pull-left">
                                 <img src="http://placehold.it/50/55C1E7/fff&text=JS" alt="User Avatar" class="img-circle" />
                               </span>
@@ -101,13 +103,13 @@
                                   </div>
                                   <form method="POST" action="/create_message/">
                                         {%csrf_token %}
-                                
+                                    
                                   <div class="panel-footer">
                                       <div class="input-group">
                                                 <input name="text_message" type="text" class="form-control input-sm" placeholder="Type your message here..." />
                                                 <span class="input-group-btn">
                                                       <button class="btn btn-secondary btn-sm" name="message__image"id="btn-chat"><input type="file" class="form-control-file"  id="message_image"></button>
-                                                    <button type="submit" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+                                                    <button type="submit" class="btn btn-warning btn-sm" id="btn-chat" name ="current_thread" value="{{current_thread}}">Send</button>
                                                 </span>
 
                                           </form>

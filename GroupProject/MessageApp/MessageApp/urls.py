@@ -20,15 +20,15 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls import url
 
 urlpatterns = [
-    path('', views.home_view, name='home'),
+    path('', views.Views.home_view, name='home'),
     url(r'^$', views.HomePageView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-     url(r'^signup/$', views.signup_view, name="signup"),
+     url(r'^signup/$', views.Views.signup_view, name="signup"),
     url(r'^login/$', LoginView.as_view(template_name='login.html'), name="login"),
     url(r'^logout/$', LogoutView.as_view(template_name='pages/login.html'), name='logout'),
-    url(r'^accounts/profile/', views.profile_view, name='profile'),
-    url(r'^create_thread/$', views.create_thread, name='create_thread'),
-    url(r'^create_message/$', views.create_message, name='create_message'),
-    
+    url(r'^accounts/profile/', views.Views.profile_view, name='profile'),
+    url(r'^create_thread/$', views.Views.create_thread, name='create_thread'),
+    url(r'^create_message/$', views.Views.create_message, name='create_message'),
+     url(r'^get_messages/$', views.Views.get_messages, name='get_messages'),
 
 ]
